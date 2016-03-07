@@ -29,4 +29,6 @@ public class LoggerImpl implements Logger {
     public void setVersion(int version) {
         this.version = version;
     }
+
+
 }

@@ -4,6 +4,7 @@ import com.sun.glass.ui.Application;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import spring.tutorial.api.Logger;
+import spring.tutorial.api.UserCreator;
 import spring.tutorial.api.UsersRepository;
 import spring.tutorial.domain.User;
 import spring.tutorial.implementations.LoggerImpl;
@@ -38,5 +39,12 @@ public class Main {
         GregorianCalendar calendar = context.getBean("calendar" , GregorianCalendar.class);
         DateFormat dateFormatter = context.getBean("formatter" , SimpleDateFormat.class);
         System.out.println(dateFormatter.format(calendar.getTime()));
+
+
+        User user = context.getBean("someUser" , User.class);
+        System.out.println(user.toString());
+
+
+
     }
 }

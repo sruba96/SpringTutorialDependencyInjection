@@ -4,7 +4,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-
     <bean id="myLogger" class="spring.tutorial.implementations.LoggerImpl">
         <property name="name" value="myLogger"/>
         <property name="version" value="1" />
@@ -12,8 +11,8 @@
     <bean id="myUserRepository" class="spring.tutorial.implementations.UserRepositoryImplementations">
         <constructor-arg ref="myLogger" />
         <constructor-arg index="1"  value="http://127.0.0.1/path" />
-
     </bean>
+
 
     <bean id="locale" class="java.util.Locale"
           factory-method="getDefault"/>
@@ -25,5 +24,11 @@
 
     <bean id="formatter" class="java.text.SimpleDateFormat"
           factory-method="getInstance"/>
+
+    <bean id="userCreator" class="spring.tutorial.api.UserCreator" />
+
+    <bean id="someUser" factory-bean="userCreator" factory-method="createUser">
+        <constructor-arg value="Janek" />
+    </bean>
 
 </beans>
