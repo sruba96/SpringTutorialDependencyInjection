@@ -15,6 +15,8 @@ public class LoggerImpl implements Logger {
     private String name;
     private int version;
 
+
+
     public void setName(String name) {
         this.name = name;
     }

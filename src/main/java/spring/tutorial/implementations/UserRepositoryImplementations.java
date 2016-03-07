@@ -9,6 +9,12 @@ import spring.tutorial.domain.User;
  */
 public class UserRepositoryImplementations  implements UsersRepository{
     private Logger logger;
+    private String localization;
+
+    public UserRepositoryImplementations(Logger logger, String localization) {
+        this.logger = logger;
+        this.localization = localization;
+    }
 
     public void setLogger(Logger logger) {
         this.logger = logger;

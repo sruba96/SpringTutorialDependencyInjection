@@ -3,13 +3,16 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-      <bean id="myLogger" class="spring.tutorial.implementations.LoggerImpl">
-          <property name="name" value="myLogger" ></property>
-          <property name="version" value="1" ></property>
-      </bean>
-      <bean id="myUserRepository" class="spring.tutorial.implementations.UserRepositoryImplementations">
-          <property name="logger" ref="myLogger"></property>
-      </bean>
 
+
+    <bean id="myLogger" class="spring.tutorial.implementations.LoggerImpl">
+        <property name="name" value="myLogger"/>
+        <property name="version" value="1" />
+    </bean>
+    <bean id="myUserRepository" class="spring.tutorial.implementations.UserRepositoryImplementations">
+        <constructor-arg ref="myLogger" />
+        <constructor-arg index="1"  value="http://127.0.0.1/path" />
+
+    </bean>
 
 </beans>
