@@ -10,4 +10,8 @@ public class Counter {
     {
         return counter++;
     }
+    public int lol()
+    {
+        return 0;
+    }
 }
