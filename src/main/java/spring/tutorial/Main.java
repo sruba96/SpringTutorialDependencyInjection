@@ -3,6 +3,7 @@ package spring.tutorial;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import spring.tutorial.api.UsersRepository;
+import spring.tutorial.implementations.Counter;
 import spring.tutorial.implementations.UserRepositoryImpl;
 
 /**
@@ -38,6 +39,7 @@ public class Main {
 
         UsersRepository userRepository = context.getBean("userRepositoryImpl" , UsersRepository.class);
         userRepository.createUser("Janek");
+
 
 
     }
