@@ -1,5 +1,6 @@
 package spring.tutorial.implementations;
 
+import org.springframework.stereotype.Service;
 import spring.tutorial.api.Logger;
 
 import java.util.Date;
@@ -11,6 +12,7 @@ import java.util.Date;
 /**
  * Display date + message in format "Date : message"
  */
+@Service
 public class LoggerImpl implements Logger {
     private String name;
     private int version;
