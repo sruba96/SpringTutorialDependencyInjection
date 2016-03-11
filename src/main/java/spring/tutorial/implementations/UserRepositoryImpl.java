@@ -6,6 +6,9 @@ import spring.tutorial.api.Logger;
 import spring.tutorial.api.UsersRepository;
 import spring.tutorial.domain.User;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 /**
  * Created by pawel on 07.03.16.
  */
@@ -26,5 +29,16 @@ public class UserRepositoryImpl implements UsersRepository{
         return new User(name);
     }
 
+    @PostConstruct
+    public void postConstruct()
+    {
+        logger.log("Post Construct");
+    }
+
+    @PreDestroy
+    public void preDestroy()
+    {
+        logger.log("Pre destroy");
+    }
 
 }

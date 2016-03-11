@@ -2,6 +2,7 @@ package spring.tutorial;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import spring.tutorial.api.UsersRepository;
 import spring.tutorial.configuredbyjava.UserRepositoryConfig;
@@ -43,12 +44,21 @@ public class Main {
 //        UsersRepository userRepository = context.getBean("userRepositoryImpl", UsersRepository.class);
 //        userRepository.createUser("Janek");
 
-        ApplicationContext context1 =
+
+//        -----------------------------Java configurations--------------------------------
+
+        /*
+         AbstractApplicationContext or ApplicationContext - first use if you want
+         create destruct method and use it.
+         */
+        AbstractApplicationContext context1 =
                 new AnnotationConfigApplicationContext(UserRepositoryConfig.class);
 
         UsersRepository userRepository =
                 context1.getBean("userRepository", UsersRepository.class);
-
+        context1.registerShutdownHook();
         User user = userRepository.createUser("Paweł");
+
+        context1.close();
     }
 }
