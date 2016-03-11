@@ -9,7 +9,7 @@ import spring.tutorial.domain.User;
 /**
  * Created by pawel on 07.03.16.
  */
-@Service
+@Service("userRepository")
 public class UserRepositoryImpl implements UsersRepository{
     @Autowired
     private Logger logger;
