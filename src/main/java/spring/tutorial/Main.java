@@ -1,8 +1,11 @@
 package spring.tutorial;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import spring.tutorial.api.UsersRepository;
+import spring.tutorial.configuredbyjava.UserRepositoryConfig;
+import spring.tutorial.domain.User;
 import spring.tutorial.implementations.Counter;
 import spring.tutorial.implementations.UserRepositoryImpl;
 
@@ -34,13 +37,18 @@ public class Main {
        /* User user = context.getBean("someUser" , User.class);
         System.out.println(user.toString());*/
 
-        ApplicationContext context =
-                new ClassPathXmlApplicationContext("classpath:configuration/newConfig.xml");
+//        ApplicationContext context =
+//                new ClassPathXmlApplicationContext("classpath:configuration/newConfig.xml");
+//
+//        UsersRepository userRepository = context.getBean("userRepositoryImpl", UsersRepository.class);
+//        userRepository.createUser("Janek");
 
-        UsersRepository userRepository = context.getBean("userRepositoryImpl" , UsersRepository.class);
-        userRepository.createUser("Janek");
+        ApplicationContext context1 =
+                new AnnotationConfigApplicationContext(UserRepositoryConfig.class);
 
+        UsersRepository userRepository =
+                context1.getBean("userRepository", UsersRepository.class);
 
-
+        User user = userRepository.createUser("Paweł");
     }
 }
