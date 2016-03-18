@@ -59,6 +59,7 @@ public class Main {
         context1.registerShutdownHook();
         User user = userRepository.createUser("Paweł");
 
+
         context1.close();
     }
 }
