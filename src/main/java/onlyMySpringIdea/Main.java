@@ -12,10 +12,17 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class Main {
 
+    @Autowired
+    private Home home1;
 
     public static void main(String[] args) {
 
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext(HomeConfig.class);
 
+        HomeImpl home = context.getBean("homeImpl" , HomeImpl.class);
+
+        home.showHome();
 
 
 

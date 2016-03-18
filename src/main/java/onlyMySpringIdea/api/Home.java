@@ -5,5 +5,5 @@ package onlyMySpringIdea.api;
  */
 public interface Home {
     public void showHome();
-    public void showPrize();
+
 }
